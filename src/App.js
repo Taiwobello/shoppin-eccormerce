@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {Provider} from "react-redux";
+
+import CartPage from "./pages/CartPage/CartPage";
+
+import {ThemeProvider} from "styled-components";
+
+
+import HomePage from "./pages/HomePage/HomePage";
+import ShopPage from "./pages/ShopPage/ShopPage";
+import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import store from "./redux/store";
+
+
+const theme = {
+  colorPrimary: "#6C7AE0",
+  colorBlack: "#3d3d3d"
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route  path="/cart" component={CartPage} />
+              <Route exact  path="/shop" component={ShopPage} />
+              <Route  path="/shop/:category" component={CategoryPage} />
+            </Switch>
+          </BrowserRouter>
+        </ThemeProvider>
+      </Provider>
     </div>
   );
 }

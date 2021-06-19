@@ -1,0 +1,3 @@
+export const ADD_TO_WISHlIST = "ADD_TO_WISHlIST";
+export const REMOVE_FROM_WISHlIST = "REMOVE_FROM_WISHlIST";
+export const TOGGLE_WISHlIST = "TOGGLE_WISHlIST";

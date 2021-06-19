@@ -1,0 +1,2 @@
+export const TOGGLE_CATEGORY = "TOGGLE_CATEGORY"
+export const TOGGLE_ACTIVE = "TOGGLE_ACTIVE"

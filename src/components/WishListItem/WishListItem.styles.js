@@ -64,6 +64,10 @@ export const WishListDescription = styled.div`
     display: flex;
     justify-content: space-between;
 
+    @media ${device.mobileL}{
+        font-size: 1.3rem;
+    }
+
     /* animation: ${slideFromRight} 4s linear; */
 
     & .delete-icon{

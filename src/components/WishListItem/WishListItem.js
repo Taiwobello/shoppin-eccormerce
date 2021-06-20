@@ -5,7 +5,7 @@ import Button from '../Button/Button'
 import { WishListDescription, WishListImage, WishListName, WishListPrice } from './WishListItem.styles'
 import { StyledWishListItem } from './WishListItem.styles'
 import ClearIcon from '@material-ui/icons/Clear';
-import { removeFromWishList, toggleWishList } from '../../redux/wishList/wishListAction'
+import { removeFromWishList } from '../../redux/wishList/wishListAction'
 
 function WishListItem({item}) {
     const {id, name, image, price} = item

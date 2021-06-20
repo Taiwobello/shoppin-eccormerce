@@ -1,16 +1,7 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Underline } from "../../pages/ShopPage/ShopPage.styles";
 import { device } from "../../screenSize";
 
-// const slideFromRight = keyframes`
-//     from{
-//         width: 0;
-//     }
-
-//     to{
-//         width: 30%;
-//     }
-// `
 
 export const WhisListContainer = styled.div`
     position: absolute;

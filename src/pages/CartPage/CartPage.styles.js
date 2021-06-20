@@ -83,6 +83,7 @@ export const ShoppingPageLink = styled(Link)`
     font-size: 2rem;
     display: block;
     width: 30%;
+    min-width: 200px;
     margin: 0 auto;
     margin-top: 10rem;
     border-radius: 10px;
@@ -94,4 +95,12 @@ export const ShoppingPageLink = styled(Link)`
     &:hover{
         opacity: .8;
     }
+`
+export const CartTotal = styled.h1`
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 500;
 `

@@ -16,7 +16,7 @@ export const removeFromWishList = (id) => {
         
 }
 
-export const toggleWishList = () => {
+export const toggleWishList = (isWishList) => {
     return{
         type: TOGGLE_WISHlIST
     }

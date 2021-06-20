@@ -36,40 +36,46 @@ const cartReducer = (state=initialCart, action) => {
             }
         
         case ADD_QUANTITY:
+            let itemToIncrementTotal = state.cartItems.find(item => item.id === action.payload)
             return{
                 ...state,
                 cartItems: state.cartItems.map(item => 
                     item.id === action.payload ? 
                         {...item, quantity: item.quantity + 1} :
                         item
-                )
+                ),
+                total: state.total + itemToIncrementTotal.price
             }
 
         case SUB_QUANTITY:
+            let itemToDecrementTotal = state.cartItems.find(item => item.id === action.payload)
             return{
                 ...state,
                 cartItems: state.cartItems.map(item => 
                     item.quantity > 1 && item.id === action.payload ? 
                         {...item, quantity: item.quantity - 1} :
                         item
-                )
+                ),
+                total: itemToDecrementTotal.quantity > 1 ? state.total - itemToDecrementTotal.price : state.total
             }
 
         case REMOVE_FROM_CART:
+            let itemToRemoveTotal = state.cartItems.find(item => item.id === action.payload)
             return{
                 ...state,
                 cartItems: state.cartItems.filter(item => 
                         item.id !== action.payload
-                    )
+                    ),
+                total: state.cartItems.length > 0 ? state.total - (itemToRemoveTotal.price * itemToRemoveTotal.quantity) :
+                        0
             }
 
         case CLEAR_CART:
             return{
                 ...state,
-                cartItems: []
+                cartItems: [],
+                total: 0
             }
-
-        
 
         default:
             return state

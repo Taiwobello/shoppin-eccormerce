@@ -1,15 +1,16 @@
 import React from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import { Underline } from '../ShopPage/ShopPage.styles'
-import { CartDetails, CartPageContainer, CartPageTitle, CartDetail, ClearCart, EmptyCart, ShoppingPageLink } from './CartPage.styles'
+import { CartDetails, CartPageContainer, CartPageTitle, CartDetail, ClearCart, EmptyCart, ShoppingPageLink, CartTotal } from './CartPage.styles'
 import CartItems from '../../components/CartItems/CartItems';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../redux/cart/cartActions';
 import WishList from '../../components/WishListItems/WishListItems';
 import { Container } from '../../App.styles';
 
-function CartPage(props) {
+function CartPage() {
     const cartItemsLength = useSelector(state => state.cart.cartItems.length)
+    const cartItemsTotal = useSelector(state => state.cart.total)
     const dispatch = useDispatch()
     return (
         <CartPageContainer>
@@ -36,6 +37,9 @@ function CartPage(props) {
                             </CartDetails>
                             <Underline />
                             <CartItems />
+                            <CartTotal>
+                                Total : ${cartItemsTotal}
+                            </CartTotal>
                             <ClearCart onClick={() => dispatch(clearCart())} text="Clear Text">
                                 Clear Cart
                             </ClearCart>

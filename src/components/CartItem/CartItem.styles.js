@@ -14,6 +14,8 @@ export const StyledCartItem = styled.div`
     @media ${device.mobileL}{
         grid-template-rows: 80px;
         font-size: 1.3rem;
+        align-items: center;
+        justify-content: center;
     }
 
     & ${Underline}{
@@ -42,7 +44,10 @@ export const CartItemImage = styled.img`
     margin-right: 2rem;
     @media ${device.mobileL}{
         margin-right: 1rem;
+        /* max-width: 70%; */
         width: 70%;
+        height: 70px;
+        object-fit: cover;
     }
     /* @media ${device.mobileL}{
         margin-right: 1rem;

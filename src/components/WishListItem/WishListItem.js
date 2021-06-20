@@ -27,7 +27,6 @@ function WishListItem({item}) {
                 </div>                
                 <ClearIcon style={{cursor: 'pointer'}} className="delete-icon" fontSize="large" onClick={() => {
                     dispatch(removeFromWishList(id))
-                    dispatch(toggleWishList(true))
                 }} />
             </WishListDescription>
         </StyledWishListItem>

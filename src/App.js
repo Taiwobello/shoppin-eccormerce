@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import store from "./redux/store";
+import ScrollToTop from "./pages/ScrollToTop";
 
 
 const theme = {
@@ -23,12 +24,14 @@ function App() {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route  path="/cart" component={CartPage} />
-              <Route exact  path="/shop" component={ShopPage} />
-              <Route  path="/shop/:category" component={CategoryPage} />
-            </Switch>
+            <ScrollToTop>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route  path="/cart" component={CartPage} />
+                <Route exact  path="/shop" component={ShopPage} />
+                <Route  path="/shop/:category" component={CategoryPage} />
+              </Switch>
+            </ScrollToTop>
           </BrowserRouter>
         </ThemeProvider>
       </Provider>

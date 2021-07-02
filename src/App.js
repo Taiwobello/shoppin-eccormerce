@@ -1,4 +1,4 @@
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter, Switch, Route, HashRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
 import CartPage from "./pages/CartPage/CartPage";
@@ -21,20 +21,22 @@ const theme = {
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <ScrollToTop>
-              <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route  path="/cart" component={CartPage} />
-                <Route exact  path="/shop" component={ShopPage} />
-                <Route  path="/shop/:category" component={CategoryPage} />
-              </Switch>
-            </ScrollToTop>
-          </BrowserRouter>
-        </ThemeProvider>
-      </Provider>
+      <HashRouter>
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <BrowserRouter>
+              <ScrollToTop>
+                <Switch>
+                  <Route exact path="/" component={HomePage} />
+                  <Route  path="/cart" component={CartPage} />
+                  <Route exact  path="/shop" component={ShopPage} />
+                  <Route  path="/shop/:category" component={CategoryPage} />
+                </Switch>
+              </ScrollToTop>
+            </BrowserRouter>
+          </ThemeProvider>
+        </Provider>
+      </HashRouter>
     </div>
   );
 }
